@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  ratewebhook:
+    image: ratewebhook
+    build:
+      context: ./../RateWebhook
+      dockerfile: Dockerfile
+
+  quoteengine:
+    image: quoteengine
+    build:
+      context: ./../QuoteEngine
+      dockerfile: Dockerfile

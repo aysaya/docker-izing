@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  ratewebhook:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - simple-bus-connection=<your service bus SAS key connection string>
+      - simple-queue-name=<your queue name>
+    ports:
+      - "80"
+  quoteengine:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - simple-bus-connection=<your service bus SAS key connection string>
+      - simple-queue-name=<your queue name>
+      - simple-topic-name=<your topic name>
+    ports:
+      - "80"
+networks:
+  default:
+    external:
+      name: nat
+
